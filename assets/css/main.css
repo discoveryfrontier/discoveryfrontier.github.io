@@ -116,30 +116,30 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .stage-nav i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); flex: none; }
 .stage-sec { padding-top: 60px; scroll-margin-top: 16px; }
 .stage-sec h2 { font-size: clamp(24px, 2.6vw, 30px); letter-spacing: -.015em; }
-.stage-blurb { margin: 6px 0 22px; color: var(--muted); }
+.stage-blurb { margin: 4px 0 16px; color: var(--muted); }
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.card { display: flex; flex-direction: row; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
 .card[hidden] { display: none; }
 .card:hover { border-color: var(--line-2); box-shadow: 0 6px 22px -12px rgba(20, 30, 40, .22); }
-/* The top of the paper's first page, fading into the card */
-.card-img { position: relative; display: block; height: 190px; overflow: hidden; background: #fff; border-bottom: 1px solid var(--line); }
+/* The paper's first page on the left, details on the right */
+.card-img { flex: none; display: block; width: 148px; min-height: 192px; overflow: hidden; background: #fff; border-right: 1px solid var(--line); }
 .card-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .35s ease; }
-.card-img::after { content: ""; position: absolute; inset: auto 0 0 0; height: 56px; background: linear-gradient(rgba(255,255,255,0), #fff); }
-.card:hover .card-img img { transform: scale(1.03); }
-.card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 22px 20px; }
+.card:hover .card-img img { transform: scale(1.04); }
+.card-body { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 14px 20px 16px; }
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
 /* Venue badges: main conference, Findings, demo track, preprint, and a highlight such as Spotlight */
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
 .badge { font-size: 12.5px; font-weight: 600; line-height: 1; padding: 6px 9px; border-radius: 6px; border: 1px solid transparent; }
 .badge-main { background: #e3f1ec; color: #075c4e; }
 .badge-findings { background: #e8eefb; color: #1d4b9e; }
 .badge-demo { background: #f3eafb; color: #5b2a91; }
 .badge-preprint { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
 .badge-note { background: var(--accent); color: #fff; }
-.card h3 { font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -.005em; }
+.card h3 { font-size: 17.5px; line-height: 1.3; font-weight: 600; letter-spacing: -.005em; }
 .card h3 a { text-decoration: none; }
 .card h3 a:hover { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-.tldr { margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
-.card-links { display: flex; gap: 18px; margin: auto 0 0; padding-top: 14px; font-size: 14px; font-weight: 600; }
+.tldr { margin: 5px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+.card-links { display: flex; gap: 16px; margin: 0; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
 .card-links a { color: var(--accent); text-decoration: none; }
 .card-links a::after { content: " →"; }
 .card-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -202,6 +202,6 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
   .nav { gap: 18px; }
   .mosaic { grid-template-columns: 1fr; }
   .tile { min-height: 0; }
-  .card-body { padding: 16px 18px 18px; }
-  .card-img { height: 140px; }
+  .card-body { padding: 12px 14px 14px; }
+  .card-img { width: 80px; min-height: 0; }
 }

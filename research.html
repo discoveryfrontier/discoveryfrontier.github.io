@@ -24,12 +24,14 @@ permalink: /research/
     {% for p in sp %}
     {% if p.venue contains "Findings" %}{% assign vt = "findings" %}{% elsif p.venue contains "arXiv" %}{% assign vt = "preprint" %}{% elsif p.venue contains "Demonstrations" %}{% assign vt = "demo" %}{% else %}{% assign vt = "main" %}{% endif %}
     <article class="card" id="{{ p.id }}">
-      <a class="card-img" href="{{ p.paper }}" tabindex="-1" aria-hidden="true"><img src="{{ '/assets/img/papers/' | append: p.id | append: '.jpg' | relative_url }}" alt="" width="664" height="380" loading="lazy"></a>
+      <a class="card-img" href="{{ p.paper }}" tabindex="-1" aria-hidden="true"><img src="{{ '/assets/img/papers/' | append: p.id | append: '.jpg' | relative_url }}" alt="" width="320" height="415" loading="lazy"></a>
       <div class="card-body">
-        <p class="badges"><span class="badge badge-{{ vt }}">{{ p.venue }}</span>{% if p.note %}<span class="badge badge-note">{{ p.note }}</span>{% endif %}</p>
+        <div class="card-top">
+          <p class="badges"><span class="badge badge-{{ vt }}">{{ p.venue }}</span>{% if p.note %}<span class="badge badge-note">{{ p.note }}</span>{% endif %}</p>
+          <p class="card-links"><a href="{{ p.paper }}">Paper</a>{% if p.code %}<a href="{{ p.code }}">Code</a>{% endif %}</p>
+        </div>
         <h3><a href="{{ p.paper }}">{{ p.title }}</a></h3>
         <p class="tldr">{{ p.tldr }}</p>
-        <p class="card-links"><a href="{{ p.paper }}">Paper</a>{% if p.code %}<a href="{{ p.code }}">Code</a>{% endif %}</p>
       </div>
     </article>
     {% endfor %}

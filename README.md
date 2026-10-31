@@ -15,10 +15,10 @@ Most changes are edits to a data file; the templates read from them.
 
 ## Adding a paper's card image
 
-Each card on `/research/` shows the top of the paper's first page as a 664×380 JPEG. With poppler installed, render the page 840 px wide, note where its content starts (`TOP`, in pixels), and crop from just above it, trimming the side margins:
+Each card on `/research/` shows the paper's first page as a 320 px-wide JPEG. With poppler installed:
 
 ```bash
-pdftoppm -f 1 -l 1 -scale-to-x 840 -scale-to-y -1 -x 88 -y $((TOP - 18)) -W 664 -H 380 -jpeg -jpegopt quality=74 -singlefile paper.pdf assets/img/papers/<id>
+pdftoppm -f 1 -l 1 -scale-to-x 320 -scale-to-y -1 -jpeg -jpegopt quality=78 -singlefile paper.pdf assets/img/papers/<id>
 ```
 
 ## Preview locally
