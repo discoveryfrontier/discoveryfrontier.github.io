@@ -143,8 +143,29 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .more-btn::after { content: " ↓"; color: var(--muted); }
 .stage-sec.open .more-btn::after { content: " ↑"; }
 
-/* Team page */
-.contact { padding-top: 24px; }
+/* Team page: one collapsible row per project, authors in paper order */
+.projects { padding-top: 28px; }
+.projects-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.projects-head h2 { font-size: clamp(24px, 2.6vw, 30px); letter-spacing: -.015em; }
+.toggle-all { height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--ink); font: 600 14px/1 var(--sans); cursor: pointer; }
+.toggle-all:hover { border-color: var(--ink); }
+.proj { border-bottom: 1px solid var(--line); }
+.proj summary { display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap; padding: 16px 36px 16px 0; position: relative; cursor: pointer; list-style: none; }
+.proj summary::-webkit-details-marker { display: none; }
+.proj summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 9px; height: 9px; margin-top: -7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .2s; }
+.proj[open] summary::after { margin-top: -2px; transform: rotate(-135deg); }
+.proj summary:hover .proj-name { color: var(--accent); }
+.proj-name { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 600; }
+.proj-name i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); flex: none; }
+.proj-meta { font-size: 14px; color: var(--muted); }
+.proj-body { padding: 0 0 22px 20px; }
+.proj-title { margin: 0 0 14px; font-size: 15px; color: var(--ink-2); }
+.proj-title a { color: var(--ink-2); text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.proj-title a:hover { color: var(--ink); text-decoration-color: var(--accent); }
+.names { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 24px; }
+.names li { font-size: 15.5px; font-weight: 500; }
+
+.contact { padding-top: 72px; }
 .contact h2 { font-size: clamp(24px, 2.6vw, 30px); letter-spacing: -.015em; }
 .contact > p { margin: 10px 0 0; color: var(--ink-2); }
 .contacts { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; max-width: 640px; }

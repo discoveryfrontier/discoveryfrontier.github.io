@@ -1,6 +1,7 @@
 # One entry per paper. Within a stage, papers show in the order listed here.
 #   id:          kebab-case key: the card's anchor on /research/ and its image, assets/img/papers/<id>.jpg
 #   short:       label used on the homepage
+#   authors:     in paper order, shown on /team/
 #   tldr:        one plain sentence for /research/: what the paper builds and what it finds
 #   stage:       a key from _data/stages.yml
 #   venue_short: compact venue for the homepage; venue is shown on /research/
@@ -10,6 +11,7 @@
 - id: scimdr
   short: SciMDR
   title: "SciMDR: Advancing Scientific Multimodal Document Reasoning"
+  authors: [Ziyu Chen, Yilun Zhao, Chengye Wang, Rilyn Han, Manasi Patwardhan, Arman Cohan]
   tldr: 300K question–answer pairs with reasoning chains over 20K papers, written for focused passages and then re-embedded in full documents, plus an expert-annotated benchmark.
   venue: ACL 2026
   venue_short: ACL 2026
@@ -21,6 +23,7 @@
 - id: sciarena
   short: SciArena
   title: "SciArena: An Open Evaluation Platform for Non-Verifiable Scientific Literature-Grounded Tasks"
+  authors: [Yilun Zhao, Kaiyan Zhang, Tiansheng Hu, Sihong Wu, Ronan Le Bras, Charles McGrady, Taira Anderson, Jonathan Bragg, Joseph Chee Chang, Jesse Dodge, Matt Latzke, Yixin Liu, Xiangru Tang, Zihang Wang, Chen Zhao, Hannaneh Hajishirzi, Doug Downey, Arman Cohan]
   tldr: An arena where researchers vote between model answers to literature questions, with over 20,000 votes on 47 models, plus a benchmark for automatic judges.
   venue: NeurIPS 2025 Datasets & Benchmarks
   venue_short: NeurIPS 2025
@@ -33,6 +36,7 @@
 - id: sciriff
   short: SciRIFF
   title: "SciRIFF: A Resource to Enhance Language Model Instruction-Following over Scientific Literature"
+  authors: [David Wadden, Kejian Shi, Jacob Morrison, Alan Li, Aakanksha Naik, Shruti Singh, Nitzan Barzilay, Kyle Lo, Tom Hope, Luca Soldaini, Shannon Zejiang Shen, Doug Downey, Hannaneh Hajishirzi, Arman Cohan]
   tldr: 137K expert-written instructions across 54 literature tasks; fine-tuning on them improves held-out scientific tasks by 70.6% on average.
   venue: EMNLP 2025
   venue_short: EMNLP 2025
@@ -44,6 +48,7 @@
 - id: miss-qa
   short: MISS-QA
   title: "Can Multimodal Foundation Models Understand Schematic Diagrams? An Empirical Study on Information-Seeking QA over Scientific Papers"
+  authors: [Yilun Zhao, Chengye Wang, Chuhan Li, Arman Cohan]
   tldr: 3,000 expert-annotated questions about the schematic diagrams in 983 papers; 18 frontier multimodal models still trail human experts.
   venue: Findings of ACL 2025
   venue_short: ACL 2025 Findings
@@ -56,6 +61,7 @@
 - id: ideaanchor
   short: IdeaAnchor
   title: "IdeaAnchor: Teaching LLMs to Turn Literature into Research Ideas"
+  authors: [Ziyu Chen, Yilun Zhao, Jiashuo Sun, Yiling Ma, Manasi Patwardhan, Arman Cohan]
   tldr: Mines published papers for how their ideas grew out of prior work, and uses that structure to train LLMs to turn a set of papers into a research idea.
   venue: arXiv preprint
   venue_short: arXiv 2026
@@ -67,6 +73,7 @@
 - id: backtrend
   short: BackTrend
   title: "BackTrend: Evaluating Scientific Weak-Signal Prediction via Backward Reconstruction"
+  authors: [Xiao Zhou, Yilun Zhao, Owen Jiang, Tiansheng Hu, Cai Xu, Manasi Patwardhan, Arman Cohan]
   tldr: Can systems spot research directions before they become mainstream? 66 validated early signals behind 25 mature AI topics; the best system reaches 10.1% F1.
   venue: Findings of EMNLP 2026
   venue_short: EMNLP 2026 Findings
@@ -78,6 +85,7 @@
 - id: ideaambig
   short: IdeaAMBIG
   title: "IdeaAMBIG: Benchmarking Implementation-Critical Gaps in Research-Idea Specifications"
+  authors: [Yiling Ma, Yilun Zhao, Sihong Wu, Manasi Patwardhan, Arman Cohan]
   tldr: 660 method specifications with gaps that block implementation; across 13 LLMs, finding the gap is the bottleneck, with 9.6% recovered on real-world cases.
   venue: arXiv preprint
   venue_short: arXiv 2026
@@ -89,6 +97,7 @@
 - id: idea-gap
   short: Human–LLM Idea Gap
   title: "Measuring the Gap Between Human and LLM Research Ideas"
+  authors: [Ziyu Chen, Yilun Zhao, Arman Cohan]
   tldr: Gives LLMs the prior papers that inspired real research ideas and compares what they propose with what humans did; LLM ideas cover a narrower, shifted range.
   venue: arXiv preprint
   venue_short: arXiv 2026
@@ -101,6 +110,7 @@
 - id: abgen
   short: AbGen
   title: "AbGen: Evaluating Large Language Models in Ablation Study Design and Evaluation for Scientific Research"
+  authors: [Yilun Zhao, Weiyuan Chen, Zhijian Xu, Manasi Patwardhan, Chengye Wang, Yixin Liu, Lovekesh Vig, Arman Cohan]
   tldr: 2,000 expert-annotated ablation-study design tasks from 677 NLP papers, plus a meta-benchmark showing that automatic judges are unreliable for this task.
   venue: ACL 2025
   venue_short: ACL 2025
@@ -113,6 +123,7 @@
 - id: scireas
   short: SciReas
   title: "Demystifying Scientific Problem-Solving in LLMs by Probing Knowledge and Reasoning"
+  authors: [Alan Li, Yixin Liu, Arpan Sarkar, Doug Downey, Arman Cohan]
   tldr: A suite of scientific reasoning benchmarks and a probing framework that separates knowledge from reasoning; recalling the relevant knowledge is a key bottleneck.
   venue: ICML 2026
   venue_short: ICML 2026
@@ -124,6 +135,7 @@
 - id: physics
   short: Physics
   title: "Physics: Benchmarking Foundation Models on University-Level Physics Problem Solving"
+  authors: [Kaiyue Feng, Yilun Zhao, Yixin Liu, Tianyu Yang, Chen Zhao, John Sous, Arman Cohan]
   tldr: 1,297 expert-annotated university physics problems across six areas; the strongest model tested, o3-mini, reaches 59.9%.
   venue: Findings of ACL 2025
   venue_short: ACL 2025 Findings
@@ -136,6 +148,7 @@
 - id: actreview
   short: ActReview
   title: "ActReview: Rebuttal-Guided Training Data and Rubric Rewards for Actionable Peer Review Generation"
+  authors: [Yiling Ma, Yilun Zhao, Sihong Wu, Ziyu Chen, Manasi Patwardhan, Arman Cohan]
   tldr: Learns from how authors answered real OpenReview reviews to train a reviewer that suggests concrete revisions, with a 1,000-instance human-curated benchmark.
   venue: arXiv preprint
   venue_short: arXiv 2026
@@ -147,6 +160,7 @@
 - id: rbtact
   short: RbtAct
   title: "RbtAct: Rebuttal as Supervision for Actionable Review Feedback Generation"
+  authors: [Sihong Wu, Yiling Ma, Yilun Zhao, Tiansheng Hu, Owen Jiang, Manasi Patwardhan, Arman Cohan]
   tldr: Uses rebuttals to learn which review comments led authors to change their papers, and trains a model to write focused, actionable comments.
   venue: Findings of ACL 2026
   venue_short: ACL 2026 Findings
@@ -158,6 +172,7 @@
 - id: limitgen
   short: LimitGen
   title: "Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers"
+  authors: [Zhijian Xu, Yilun Zhao, Manasi Patwardhan, Lovekesh Vig, Arman Cohan]
   tldr: A taxonomy of limitation types and a benchmark of synthetic and real limitations in AI papers; retrieving related literature helps LLMs find them.
   venue: ACL 2025
   venue_short: ACL 2025
@@ -169,6 +184,7 @@
 - id: sciver
   short: SciVer
   title: "SciVer: Evaluating Foundation Models for Multimodal Scientific Claim Verification"
+  authors: [Chengye Wang, Yifei Shen, Zexi Kuang, Arman Cohan, Yilun Zhao]
   tldr: 3,000 expert-annotated claims to check against the text, tables and figures of 1,113 papers; 21 multimodal models trail human experts.
   venue: ACL 2025
   venue_short: ACL 2025
@@ -181,6 +197,7 @@
 - id: scisketch
   short: SciSketch
   title: "SciSketch: An Open-source Framework for Automated Schematic Diagram Generation in Scientific Papers"
+  authors: [Zihang Wang, Yilun Zhao, Kaiyan Zhang, Chen Zhao, Manasi Patwardhan, Arman Cohan]
   tldr: An open-source framework that draws a paper's schematic overview diagram, either by planning a layout in graphics code or by generating the image directly.
   venue: EMNLP 2025 System Demonstrations
   venue_short: EMNLP 2025 Demo
@@ -193,6 +210,7 @@
 - id: agent-eval-survey
   short: Agent Evaluation Survey
   title: "A Survey on Evaluation of LLM-based Agents"
+  authors: [Asaf Yehudai, Lilach Eden, Alan Li, Guy Uziel, Yilun Zhao, Roy Bar-Haim, Arman Cohan, Michal Shmueli-Scheuer]
   tldr: How LLM-based agents are evaluated, from planning and tool use to web and software agents, and where evaluation of cost, safety and robustness falls short.
   venue: Findings of ACL 2026
   venue_short: ACL 2026 Findings

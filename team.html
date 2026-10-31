@@ -5,6 +5,31 @@ permalink: /team/
 ---
 <section class="wrap page-head">
   <h1>Team</h1>
+  <p class="lead">The people behind each project, in paper order.</p>
+</section>
+
+<section class="wrap projects">
+  <div class="projects-head">
+    <h2>Projects</h2>
+    <button class="toggle-all" type="button" hidden>Expand all</button>
+  </div>
+  {% for stage in site.data.stages %}
+  {% assign sp = site.data.papers | where: "stage", stage.key %}
+  {% for p in sp %}
+  <details class="proj" style="--c:{{ stage.color }}">
+    <summary>
+      <span class="proj-name"><i></i>{{ p.short }}</span>
+      <span class="proj-meta">{{ p.venue }} · {{ p.authors.size }} authors</span>
+    </summary>
+    <div class="proj-body">
+      <p class="proj-title"><a href="{{ p.paper }}">{{ p.title }}</a></p>
+      <ul class="names">
+        {% for a in p.authors %}<li>{{ a }}</li>{% endfor %}
+      </ul>
+    </div>
+  </details>
+  {% endfor %}
+  {% endfor %}
 </section>
 
 <section class="wrap contact">
@@ -16,3 +41,23 @@ permalink: /team/
     {% endfor %}
   </ul>
 </section>
+
+<script>
+  // "Expand all" / "Collapse all" for the project list. Without JS each project still opens on its own.
+  (function () {
+    var button = document.querySelector(".toggle-all");
+    var items = Array.prototype.slice.call(document.querySelectorAll(".proj"));
+    function sync() {
+      var allOpen = items.every(function (d) { return d.open; });
+      button.textContent = allOpen ? "Collapse all" : "Expand all";
+    }
+    button.hidden = false;
+    button.addEventListener("click", function () {
+      var open = !items.every(function (d) { return d.open; });
+      items.forEach(function (d) { d.open = open; });
+      sync();
+    });
+    items.forEach(function (d) { d.addEventListener("toggle", sync); });
+    sync();
+  })();
+</script>

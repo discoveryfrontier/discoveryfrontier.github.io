@@ -8,7 +8,7 @@ Most changes are edits to a data file; the templates read from them.
 
 | File | What it holds |
 |---|---|
-| `_data/papers.yml` | Every paper on the homepage and `/research/`, each with a one-sentence `tldr`. `stage` must be a key from `stages.yml`. |
+| `_data/papers.yml` | Every paper on the homepage, `/research/` and `/team/`, with its authors in paper order and a one-sentence `tldr`. `stage` must be a key from `stages.yml`. |
 | `_data/stages.yml` | Research-loop stages, in display order, with each stage's accent colour. |
 | `_data/team.yml` | Contacts (name, affiliation, email) listed on `/team/`. |
 | `_data/upcoming.yml` | "Coming soon" rows on the homepage. Only `name` and `status`; nothing about unpublished work. |

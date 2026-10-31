@@ -27,13 +27,14 @@ stages.each do |s|
 end
 
 papers = load("papers.yml")
-required = %w[id short title tldr venue venue_short year stage paper]
+required = %w[id short title authors tldr venue venue_short year stage paper]
 allowed = required + %w[code note]
 papers.each_with_index do |p, i|
   where = "papers.yml entry #{i + 1} (#{p['short'] || p['title'] || '?'})"
   required.each { |k| errors << "#{where}: missing #{k}" if p[k].nil? || p[k].to_s.strip.empty? }
   (p.keys - allowed).each { |k| errors << "#{where}: unknown field #{k}" }
   errors << "#{where}: year must be a number" unless p["year"].is_a?(Integer)
+  errors << "#{where}: authors must be a non-empty list" unless p["authors"].is_a?(Array) && !p["authors"].empty?
   errors << "#{where}: id must be lowercase kebab-case" unless p["id"].to_s.match?(/\A[a-z0-9]+(-[a-z0-9]+)*\z/)
   errors << "#{where}: missing image assets/img/papers/#{p['id']}.jpg" unless File.exist?(File.join(ROOT, "assets/img/papers/#{p['id']}.jpg"))
   errors << "#{where}: stage '#{p['stage']}' is not in stages.yml" unless stage_keys.include?(p["stage"])
