@@ -1,0 +1,12 @@
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <a class="brand" href="{{ '/' | relative_url }}">{% include mark.svg %}<span>{{ site.title }}</span></a>
+      <p>{{ site.tagline }}.</p>
+    </div>
+    <nav aria-label="Footer">
+      {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+      <a href="{{ site.github_org }}">GitHub</a>
+    </nav>
+  </div>
+</footer>

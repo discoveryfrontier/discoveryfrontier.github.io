@@ -1,0 +1,74 @@
+---
+layout: default
+title: Research
+permalink: /research/
+---
+<section class="wrap page-head">
+  <h1>Research</h1>
+  <p class="lead">Published work from our group, ordered along the research loop.</p>
+  <nav class="stage-nav" aria-label="Stages">
+    {% for stage in site.data.stages %}
+    {% assign sp = site.data.papers | where: "stage", stage.key %}
+    {% if sp.size > 0 %}<a href="#{{ stage.key }}" style="--c:{{ stage.color }}"><i></i>{{ stage.label }}</a>{% endif %}
+    {% endfor %}
+  </nav>
+</section>
+
+{% for stage in site.data.stages %}
+{% assign sp = site.data.papers | where: "stage", stage.key %}
+{% if sp.size > 0 %}
+<section class="wrap stage-sec" id="{{ stage.key }}" style="--c:{{ stage.color }}" data-clamp>
+  <h2>{% if stage.home %}<span class="n">{{ forloop.index }}.</span> {% endif %}{{ stage.label }}</h2>
+  <p class="stage-blurb">{{ stage.blurb }}</p>
+  <div class="cards">
+    {% for p in sp %}
+    {% if p.venue contains "Findings" %}{% assign vt = "findings" %}{% elsif p.venue contains "arXiv" %}{% assign vt = "preprint" %}{% elsif p.venue contains "Demonstrations" %}{% assign vt = "demo" %}{% else %}{% assign vt = "main" %}{% endif %}
+    <article class="card" id="{{ p.id }}">
+      <a class="card-img" href="{{ p.paper }}" tabindex="-1" aria-hidden="true"><img src="{{ '/assets/img/papers/' | append: p.id | append: '.jpg' | relative_url }}" alt="" width="664" height="380" loading="lazy"></a>
+      <div class="card-body">
+        <p class="badges"><span class="badge badge-{{ vt }}">{{ p.venue }}</span>{% if p.note %}<span class="badge badge-note">{{ p.note }}</span>{% endif %}</p>
+        <h3><a href="{{ p.paper }}">{{ p.title }}</a></h3>
+        <p class="tldr">{{ p.tldr }}</p>
+        <p class="card-links"><a href="{{ p.paper }}">Paper</a>{% if p.code %}<a href="{{ p.code }}">Code</a>{% endif %}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <button class="more-btn" type="button" aria-expanded="false" hidden>Show more</button>
+</section>
+{% endif %}
+{% endfor %}
+
+<script>
+  // Show two rows of cards per stage until "Show more" is pressed. Without JS every card shows.
+  (function () {
+    var groups = Array.prototype.slice.call(document.querySelectorAll("[data-clamp]"));
+    function columns(grid) {
+      return getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length || 1;
+    }
+    function apply(group) {
+      var grid = group.querySelector(".cards");
+      var cards = grid.children;
+      var button = group.querySelector(".more-btn");
+      var open = group.classList.contains("open");
+      var limit = 2 * columns(grid);
+      for (var i = 0; i < cards.length; i++) cards[i].hidden = !open && i >= limit;
+      button.hidden = cards.length <= limit;
+      button.textContent = open ? "Show less" : "Show more";
+      button.setAttribute("aria-expanded", String(open));
+    }
+    groups.forEach(function (group) {
+      group.querySelector(".more-btn").addEventListener("click", function () {
+        var wasOpen = group.classList.toggle("open") === false;
+        apply(group);
+        if (wasOpen && group.getBoundingClientRect().top < 0) group.scrollIntoView();
+      });
+      apply(group);
+    });
+    var pending;
+    window.addEventListener("resize", function () {
+      cancelAnimationFrame(pending);
+      pending = requestAnimationFrame(function () { groups.forEach(apply); });
+    });
+  })();
+</script>

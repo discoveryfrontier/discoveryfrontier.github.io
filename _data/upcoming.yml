@@ -1,0 +1,5 @@
+# Unreleased projects shown as a one-line "Coming soon" row on the homepage.
+# Only `name` and `status` are allowed (enforced by scripts/validate_data.rb):
+# do not describe unpublished work here.
+- name: PaperLab
+  status: TBA

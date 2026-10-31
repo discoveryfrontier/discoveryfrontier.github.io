@@ -1,0 +1,37 @@
+# Research-loop stages, in display order. `home: false` keeps a stage off the homepage.
+# `color` is the stage's tile colour (keep it dark enough for white text) and its node on the loop diagram.
+- key: literature
+  label: Literature
+  blurb: Finding, reading and synthesizing papers.
+  color: "#1a62d6"
+  home: true
+- key: ideation
+  label: Ideation
+  blurb: Proposing and specifying research ideas.
+  color: "#a16207"
+  home: true
+- key: design
+  label: Experiment design
+  blurb: Planning studies and designing ablations.
+  color: "#7c3aed"
+  home: true
+- key: discovery
+  label: Discovery & reasoning
+  blurb: Solving scientific problems with knowledge and reasoning.
+  color: "#15803d"
+  home: true
+- key: critique
+  label: Critique & review
+  blurb: Verifying claims, finding limitations, reviewing papers.
+  color: "#b91c1c"
+  home: true
+- key: communication
+  label: Communication
+  blurb: Figures and diagrams for scientific papers.
+  color: "#0e7490"
+  home: true
+- key: evaluation
+  label: Evaluation methods
+  blurb: How to evaluate LLM-based agents.
+  color: "#5f6368"
+  home: false

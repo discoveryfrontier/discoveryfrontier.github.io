@@ -1,0 +1,27 @@
+title: DiscoveryFrontier
+tagline: Environments that evaluate and train AI to do research
+description: DiscoveryFrontier builds environments, benchmarks and datasets that evaluate AI on real scientific work and train it to do that work.
+url: https://discoveryfrontier.org
+baseurl: ""
+github_org: https://github.com/discoveryfrontier
+
+nav:
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+  - title: Team
+    url: /team/
+
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - vendor
+  - .bundle

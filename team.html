@@ -1,0 +1,18 @@
+---
+layout: default
+title: Team
+permalink: /team/
+---
+<section class="wrap page-head">
+  <h1>Team</h1>
+</section>
+
+<section class="wrap contact">
+  <h2>Contact</h2>
+  <p>Send questions and collaboration ideas to either of us.</p>
+  <ul class="contacts">
+    {% for c in site.data.team.contacts %}
+    <li><b>{{ c.name }}</b><span>{{ c.affiliation }}</span><a href="mailto:{{ c.email }}">{{ c.email }}</a></li>
+    {% endfor %}
+  </ul>
+</section>

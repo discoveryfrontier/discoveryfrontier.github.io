@@ -1,0 +1,74 @@
+---
+layout: default
+---
+{% assign home_stages = site.data.stages | where: "home", true %}
+{% comment %} Node and label positions for six stages on a ring centred at (280, 210), radius 130, clockwise from the top. {% endcomment %}
+{% assign nx = "280,392.6,392.6,280,167.4,167.4" | split: "," %}
+{% assign ny = "80,145,275,340,275,145" | split: "," %}
+{% assign lx = "280,428,428,280,132,132" | split: "," %}
+{% assign ly = "38,150,280,392,280,150" | split: "," %}
+{% assign la = "middle,start,start,middle,end,end" | split: "," %}
+
+<section class="hero wrap">
+  <div class="hero-copy">
+    <p class="kicker">Research environments for AI</p>
+    <h1>{{ site.title }}: Can AI Do Science?</h1>
+    <p class="lead">{{ site.title }} builds environments, benchmarks and datasets that test AI on real scientific work and teach it to do that work, across the research loop: reading the literature, proposing ideas, designing experiments, making discoveries, and reviewing results.</p>
+    <div class="actions">
+      <a class="btn btn-ink" href="{{ '/research/' | relative_url }}">Our research</a>
+      <a class="btn" href="{{ site.github_org }}">GitHub</a>
+    </div>
+  </div>
+
+  <figure class="loop">
+    <svg viewBox="-8 0 586 420" role="img" aria-labelledby="loop-title">
+      <title id="loop-title">The research loop: {% for s in home_stages %}{{ forloop.index }}. {{ s.label }}{% unless forloop.last %}, {% endunless %}{% endfor %}</title>
+      <circle class="ring" cx="280" cy="210" r="130"/>
+      <g class="chev">
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(345 97.4) rotate(30)"/>
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(410 210) rotate(90)"/>
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(345 322.6) rotate(150)"/>
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(215 322.6) rotate(210)"/>
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(150 210) rotate(270)"/>
+        <path d="M-4,-5 L3,0 L-4,5" transform="translate(215 97.4) rotate(330)"/>
+      </g>
+      <g class="orbit"><circle cx="280" cy="80" r="5"/></g>
+      <text class="loop-c" x="280" y="206">The research</text>
+      <text class="loop-c" x="280" y="232">loop</text>
+      {% for s in home_stages limit: 6 %}{% assign i = forloop.index0 %}
+      <a class="node" href="{{ '/research/' | relative_url }}#{{ s.key }}" style="--c:{{ s.color }}">
+        <circle cx="{{ nx[i] }}" cy="{{ ny[i] }}" r="22"/>
+        <text class="node-n" x="{{ nx[i] }}" y="{{ ny[i] }}" dy="0.35em">{{ forloop.index }}</text>
+        <text class="node-l" x="{{ lx[i] }}" y="{{ ly[i] }}" text-anchor="{{ la[i] }}">{{ s.label }}</text>
+      </a>
+      {% endfor %}
+    </svg>
+  </figure>
+</section>
+
+{% if site.data.upcoming.size > 0 %}
+<section class="wrap soon-row">
+  {% for item in site.data.upcoming %}
+  <div class="soon"><span class="soon-tag">Coming soon</span><b>{{ item.name }}</b><span class="soon-status">{{ item.status }}</span></div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<section class="wrap sec" id="loop">
+  <div class="sec-head">
+    <h2>Across the research loop</h2>
+    <a href="{{ '/research/' | relative_url }}">All research →</a>
+  </div>
+  <div class="mosaic">
+    {% for stage in home_stages %}
+    {% assign sp = site.data.papers | where: "stage", stage.key %}
+    <div class="tile tile-{{ stage.key }}" style="--c:{{ stage.color }}">
+      <a class="tile-label" href="{{ '/research/' | relative_url }}#{{ stage.key }}"><span class="n">{{ forloop.index }}.</span> {{ stage.label }}</a>
+      <p class="tile-blurb">{{ stage.blurb }}</p>
+      <ul>
+        {% for p in sp %}<li><a href="{{ p.paper }}" title="{{ p.title | escape }}">{{ p.short }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>

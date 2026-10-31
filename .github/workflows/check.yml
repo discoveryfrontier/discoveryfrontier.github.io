@@ -1,0 +1,25 @@
+name: Check site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Validate data files
+        run: bundle exec ruby scripts/validate_data.rb
+      - name: Build
+        run: bundle exec jekyll build
+      - name: Check internal links
+        run: bundle exec htmlproofer ./_site --disable-external
+      - name: Check external links (manual runs only)
+        if: github.event_name == 'workflow_dispatch'
+        run: bundle exec htmlproofer ./_site

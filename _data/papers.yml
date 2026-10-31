@@ -1,0 +1,202 @@
+# One entry per paper. Within a stage, papers show in the order listed here.
+#   id:          kebab-case key: the card's anchor on /research/ and its image, assets/img/papers/<id>.jpg
+#   short:       label used on the homepage
+#   tldr:        one plain sentence for /research/: what the paper builds and what it finds
+#   stage:       a key from _data/stages.yml
+#   venue_short: compact venue for the homepage; venue is shown on /research/
+# Run `ruby scripts/validate_data.rb` after editing.
+
+# --- Literature ---
+- id: scimdr
+  short: SciMDR
+  title: "SciMDR: Advancing Scientific Multimodal Document Reasoning"
+  tldr: 300K question–answer pairs with reasoning chains over 20K papers, written for focused passages and then re-embedded in full documents, plus an expert-annotated benchmark.
+  venue: ACL 2026
+  venue_short: ACL 2026
+  year: 2026
+  stage: literature
+  paper: https://arxiv.org/abs/2603.12249
+  code: https://github.com/ziyuuc/SciMDR
+
+- id: sciarena
+  short: SciArena
+  title: "SciArena: An Open Evaluation Platform for Non-Verifiable Scientific Literature-Grounded Tasks"
+  tldr: An arena where researchers vote between model answers to literature questions, with over 20,000 votes on 47 models, plus a benchmark for automatic judges.
+  venue: NeurIPS 2025 Datasets & Benchmarks
+  venue_short: NeurIPS 2025
+  note: Spotlight
+  year: 2025
+  stage: literature
+  paper: https://arxiv.org/abs/2507.01001
+  code: https://github.com/yale-nlp/SciArena
+
+- id: sciriff
+  short: SciRIFF
+  title: "SciRIFF: A Resource to Enhance Language Model Instruction-Following over Scientific Literature"
+  tldr: 137K expert-written instructions across 54 literature tasks; fine-tuning on them improves held-out scientific tasks by 70.6% on average.
+  venue: EMNLP 2025
+  venue_short: EMNLP 2025
+  year: 2025
+  stage: literature
+  paper: https://arxiv.org/abs/2406.07835
+  code: https://github.com/allenai/SciRIFF
+
+- id: miss-qa
+  short: MISS-QA
+  title: "Can Multimodal Foundation Models Understand Schematic Diagrams? An Empirical Study on Information-Seeking QA over Scientific Papers"
+  tldr: 3,000 expert-annotated questions about the schematic diagrams in 983 papers; 18 frontier multimodal models still trail human experts.
+  venue: Findings of ACL 2025
+  venue_short: ACL 2025 Findings
+  year: 2025
+  stage: literature
+  paper: https://aclanthology.org/2025.findings-acl.957/
+  code: https://github.com/yilunzhao/MISS-QA
+
+# --- Ideation ---
+- id: ideaanchor
+  short: IdeaAnchor
+  title: "IdeaAnchor: Teaching LLMs to Turn Literature into Research Ideas"
+  tldr: Mines published papers for how their ideas grew out of prior work, and uses that structure to train LLMs to turn a set of papers into a research idea.
+  venue: arXiv preprint
+  venue_short: arXiv 2026
+  year: 2026
+  stage: ideation
+  paper: https://arxiv.org/abs/2610.08781
+  code: https://github.com/ziyuuc/IdeaAnchor
+
+- id: backtrend
+  short: BackTrend
+  title: "BackTrend: Evaluating Scientific Weak-Signal Prediction via Backward Reconstruction"
+  tldr: Can systems spot research directions before they become mainstream? 66 validated early signals behind 25 mature AI topics; the best system reaches 10.1% F1.
+  venue: Findings of EMNLP 2026
+  venue_short: EMNLP 2026 Findings
+  year: 2026
+  stage: ideation
+  paper: https://arxiv.org/abs/2609.24921
+  code: https://github.com/rebeccaz4/BackTrend
+
+- id: ideaambig
+  short: IdeaAMBIG
+  title: "IdeaAMBIG: Benchmarking Implementation-Critical Gaps in Research-Idea Specifications"
+  tldr: 660 method specifications with gaps that block implementation; across 13 LLMs, finding the gap is the bottleneck, with 9.6% recovered on real-world cases.
+  venue: arXiv preprint
+  venue_short: arXiv 2026
+  year: 2026
+  stage: ideation
+  paper: https://arxiv.org/abs/2609.10539
+  code: https://github.com/Yiling-Ma/IdeaAMBIG
+
+- id: idea-gap
+  short: Human–LLM Idea Gap
+  title: "Measuring the Gap Between Human and LLM Research Ideas"
+  tldr: Gives LLMs the prior papers that inspired real research ideas and compares what they propose with what humans did; LLM ideas cover a narrower, shifted range.
+  venue: arXiv preprint
+  venue_short: arXiv 2026
+  year: 2026
+  stage: ideation
+  paper: https://arxiv.org/abs/2607.01233
+  code: https://github.com/ziyuuc/TasteGap
+
+# --- Experiment design ---
+- id: abgen
+  short: AbGen
+  title: "AbGen: Evaluating Large Language Models in Ablation Study Design and Evaluation for Scientific Research"
+  tldr: 2,000 expert-annotated ablation-study design tasks from 677 NLP papers, plus a meta-benchmark showing that automatic judges are unreliable for this task.
+  venue: ACL 2025
+  venue_short: ACL 2025
+  year: 2025
+  stage: design
+  paper: https://aclanthology.org/2025.acl-long.611/
+  code: https://github.com/yale-nlp/AbGen
+
+# --- Discovery & reasoning ---
+- id: scireas
+  short: SciReas
+  title: "Demystifying Scientific Problem-Solving in LLMs by Probing Knowledge and Reasoning"
+  tldr: A suite of scientific reasoning benchmarks and a probing framework that separates knowledge from reasoning; recalling the relevant knowledge is a key bottleneck.
+  venue: ICML 2026
+  venue_short: ICML 2026
+  year: 2026
+  stage: discovery
+  paper: https://arxiv.org/abs/2508.19202
+  code: https://github.com/yale-nlp/SciReas-Eval
+
+- id: physics
+  short: Physics
+  title: "Physics: Benchmarking Foundation Models on University-Level Physics Problem Solving"
+  tldr: 1,297 expert-annotated university physics problems across six areas; the strongest model tested, o3-mini, reaches 59.9%.
+  venue: Findings of ACL 2025
+  venue_short: ACL 2025 Findings
+  year: 2025
+  stage: discovery
+  paper: https://aclanthology.org/2025.findings-acl.610/
+  code: https://github.com/yale-nlp/Physics
+
+# --- Critique & review ---
+- id: actreview
+  short: ActReview
+  title: "ActReview: Rebuttal-Guided Training Data and Rubric Rewards for Actionable Peer Review Generation"
+  tldr: Learns from how authors answered real OpenReview reviews to train a reviewer that suggests concrete revisions, with a 1,000-instance human-curated benchmark.
+  venue: arXiv preprint
+  venue_short: arXiv 2026
+  year: 2026
+  stage: critique
+  paper: https://arxiv.org/abs/2609.09076
+  code: https://github.com/Yiling-Ma/ActReview
+
+- id: rbtact
+  short: RbtAct
+  title: "RbtAct: Rebuttal as Supervision for Actionable Review Feedback Generation"
+  tldr: Uses rebuttals to learn which review comments led authors to change their papers, and trains a model to write focused, actionable comments.
+  venue: Findings of ACL 2026
+  venue_short: ACL 2026 Findings
+  year: 2026
+  stage: critique
+  paper: https://arxiv.org/abs/2603.09723
+  code: https://github.com/formula12/RbtAct
+
+- id: limitgen
+  short: LimitGen
+  title: "Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers"
+  tldr: A taxonomy of limitation types and a benchmark of synthetic and real limitations in AI papers; retrieving related literature helps LLMs find them.
+  venue: ACL 2025
+  venue_short: ACL 2025
+  year: 2025
+  stage: critique
+  paper: https://aclanthology.org/2025.acl-long.1009/
+  code: https://github.com/yale-nlp/LimitGen
+
+- id: sciver
+  short: SciVer
+  title: "SciVer: Evaluating Foundation Models for Multimodal Scientific Claim Verification"
+  tldr: 3,000 expert-annotated claims to check against the text, tables and figures of 1,113 papers; 21 multimodal models trail human experts.
+  venue: ACL 2025
+  venue_short: ACL 2025
+  year: 2025
+  stage: critique
+  paper: https://aclanthology.org/2025.acl-long.420/
+  code: https://github.com/QDRhhhh/SciVer
+
+# --- Communication ---
+- id: scisketch
+  short: SciSketch
+  title: "SciSketch: An Open-source Framework for Automated Schematic Diagram Generation in Scientific Papers"
+  tldr: An open-source framework that draws a paper's schematic overview diagram, either by planning a layout in graphics code or by generating the image directly.
+  venue: EMNLP 2025 System Demonstrations
+  venue_short: EMNLP 2025 Demo
+  year: 2025
+  stage: communication
+  paper: https://aclanthology.org/2025.emnlp-demos.28/
+  code: https://github.com/yale-nlp/SciSketch
+
+# --- Evaluation methods (Research page only) ---
+- id: agent-eval-survey
+  short: Agent Evaluation Survey
+  title: "A Survey on Evaluation of LLM-based Agents"
+  tldr: How LLM-based agents are evaluated, from planning and tool use to web and software agents, and where evaluation of cost, safety and robustness falls short.
+  venue: Findings of ACL 2026
+  venue_short: ACL 2026 Findings
+  year: 2026
+  stage: evaluation
+  paper: https://aclanthology.org/2026.findings-acl.1330/
+  code: https://github.com/Asaf-Yehudai/LLM-Agent-Evaluation-Survey
