@@ -6,7 +6,7 @@
     </div>
     <nav aria-label="Footer">
       {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
-      <a href="{{ site.github_org }}">GitHub</a>
+      <a class="gh" href="{{ site.github_org }}" aria-label="{{ site.title }} on GitHub" title="GitHub">{% include github.svg %}</a>
     </nav>
   </div>
 </footer>

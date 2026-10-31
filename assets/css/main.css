@@ -12,6 +12,7 @@
   --accent: #0b7a68;
   --accent-soft: #e2f2ee;
   --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(20px, 4.2vw, 60px);
   color-scheme: light;
 }
 
@@ -21,7 +22,8 @@ body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; back
 main { flex: 1 0 auto; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-.wrap { max-width: 1120px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+/* Content grows to 1320px; the side gutters scale with the window. */
+.wrap { box-sizing: content-box; max-width: 1320px; margin-inline: auto; padding-inline: var(--gutter); }
 h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .n { font-weight: 700; color: var(--c, var(--accent)); font-variant-numeric: tabular-nums; }
 
@@ -31,10 +33,13 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
 .brand span { font-size: 19px; font-weight: 600; letter-spacing: -.015em; }
 .mark { width: 22px; height: 22px; flex: none; }
-.nav { display: flex; gap: 26px; }
+.nav { display: flex; align-items: center; gap: 26px; }
 .nav a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; }
 .nav a:hover { color: var(--ink); }
 .nav a.on { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.gh { display: inline-flex; align-items: center; color: var(--muted); }
+.gh:hover { color: var(--ink); }
+.gh svg { display: block; width: 20px; height: 20px; }
 
 /* Homepage hero */
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 56px; align-items: center; padding-top: 64px; }
@@ -57,7 +62,7 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 
 /* Research-loop diagram */
 .loop { margin: 0; }
-.loop svg { display: block; width: 100%; height: auto; max-width: 586px; margin-inline: auto; overflow: visible; }
+.loop svg { display: block; width: 100%; height: auto; max-width: 640px; margin-inline: auto; overflow: visible; }
 .ring { fill: none; stroke: var(--line-2); stroke-width: 1.5; }
 .chev path { fill: none; stroke: var(--faint); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .orbit { transform-origin: 280px 210px; animation: orbit 30s linear infinite; }
@@ -117,7 +122,7 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .card[hidden] { display: none; }
 .card:hover { border-color: var(--line-2); box-shadow: 0 6px 22px -12px rgba(20, 30, 40, .22); }
 /* The top of the paper's first page, fading into the card */
-.card-img { position: relative; display: block; height: 170px; overflow: hidden; background: #fff; border-bottom: 1px solid var(--line); }
+.card-img { position: relative; display: block; height: 190px; overflow: hidden; background: #fff; border-bottom: 1px solid var(--line); }
 .card-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .35s ease; }
 .card-img::after { content: ""; position: absolute; inset: auto 0 0 0; height: 56px; background: linear-gradient(rgba(255,255,255,0), #fff); }
 .card:hover .card-img img { transform: scale(1.03); }
@@ -180,7 +185,7 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
 .foot-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 40px; }
 .foot .brand span { font-size: 17px; }
 .foot p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
-.foot nav { display: flex; gap: 24px; font-size: 14.5px; }
+.foot nav { display: flex; align-items: center; gap: 24px; font-size: 14.5px; }
 .foot nav a { color: var(--muted); text-decoration: none; }
 .foot nav a:hover { color: var(--ink); }
 
@@ -189,6 +194,8 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; margin: 0; }
   .hero { grid-template-columns: 1fr; padding-top: 48px; }
   .loop svg { max-width: 480px; }
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
   .cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
